@@ -7,11 +7,12 @@ const Index = (props) => {
   // For each post in the array render a Post component
   return <>
   <div style={{textAlign: "center"}}>
-  <h2>Create a Todo</h2>
+  <h2>Create a Cheese</h2>
   <Form action="/create" method="post">
-      <input type="text" name="subject" placeholder="write subject here"/>
-      <input type="text" name="details" placeholder="write details here"/>
-      <button>Create New Todo</button>
+      <input type="text" name="subject" placeholder="write Name here"/>
+      <input type="text" name="details" placeholder="write Origin Country here"/>
+      <input type="text" name="details" placeholder="write Type here"/>
+      <button>Create New Cheese</button>
   </Form>
   </div>
   {todos.map((post) => <Post post={post} key={post.id} />)}

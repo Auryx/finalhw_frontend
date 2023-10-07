@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 // destructuring the props needed to get our post, including router prop match
 const Show = () => {
   const post = useLoaderData();
-
+  console.log(post)
   ////////////////////
   // Styles
   ///////////////////
@@ -16,8 +16,9 @@ const Show = () => {
 
   return (
     <div style={div}>
-      <h1>{post.subject}</h1>
-      <h2>{post.details}</h2>
+      <h1>{post.name}</h1>
+      <h2>{post.origin_country}</h2>
+      <h2>{post.type}</h2>
       <Link to="/">
         <button>Go Back</button>
       </Link>

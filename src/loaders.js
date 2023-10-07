@@ -3,7 +3,7 @@ const URL = "https://cheese-app-backend-z1im.onrender.com"
 
 //indexLoader => get all todos for index route
 export const indexLoader = async () => {
-    const response = await fetch(URL + "/todos/")
+    const response = await fetch(URL + "/cheese/")
     console.log(response)
     const todos = await response.json()
     return todos
@@ -11,7 +11,7 @@ export const indexLoader = async () => {
 
 //showLoader => get a single todo for Show route
 export const showLoader = async ({params}) => {
-    const response = await fetch(URL + `/todos/${params.id}/`)
+    const response = await fetch(URL + `/cheese/${params.id}/`)
     const todo = await response.json()
     return todo
 }

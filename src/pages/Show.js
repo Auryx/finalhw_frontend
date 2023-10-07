@@ -3,7 +3,7 @@ import { Link, useLoaderData, Form } from "react-router-dom";
 // destructuring the props needed to get our post, including router prop match
 const Show = () => {
   const post = useLoaderData();
-
+  console.log(post)
   ////////////////////
   // Styles
   ///////////////////
@@ -16,24 +16,30 @@ const Show = () => {
 
   return (
     <div style={div}>
-      <h1>{post.subject}</h1>
-      <h2>{post.details}</h2>
+      <h1>{post.name}</h1>
+      <h2>{post.origin_country}</h2>
       <div style={{ textAlign: "center" }}>
-        <h2>Create a Todo</h2>
+        <h2>Update Cheese</h2>
         <Form action={`/update/${post.id}`} method="post">
           <input
             type="text"
-            name="subject"
-            placeholder="write subject here"
-            defaultValue={post.subject}
+            name="name"
+            placeholder="write Name here"
+            defaultValue={post.name}
           />
           <input
             type="text"
-            name="details"
-            placeholder="write details here"
-            defaultValue={post.details}
+            name="origin-country"
+            placeholder="write Origin Country here"
+            defaultValue={post.origin_country}
           />
-          <button>Update Todo</button>
+          <input
+            type="text"
+            name="type"
+            placeholder="write Type here"
+            defaultValue={post.type}
+          />
+          <button>Update Cheese</button>
         </Form>
         <Form action={`/delete/${post.id}`} method="post">
           <button>Delete Todo</button>

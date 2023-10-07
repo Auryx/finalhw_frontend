@@ -1,7 +1,7 @@
 import { redirect } from "react-router-dom"
 
 // YOUR DEPLOYED API BASE URL
-const URL = "https://xxxxxxx.onrender.com"
+const URL = "https://cheese-app-backend-z1im.onrender.com"
 
 //createAction => create a todo from form submissions to `/create`
 export const createAction = async ({request}) => {
@@ -15,14 +15,14 @@ export const createAction = async ({request}) => {
     }
 
     // send request to backend
-    await fetch(URL + "/todos/", {
+    await fetch(URL + "/cheese/", {
         method: "post",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(newTodo)
     })
-
+    console.log(newTodo)
     // redirect back to index page
     return redirect("/")
 }
@@ -42,7 +42,7 @@ export const updateAction = async ({request, params}) => {
     }
 
     // send request to backend
-    await fetch(URL + `/todos/${id}/`, {
+    await fetch(URL + `/cheese/${id}/`, {
         method: "put",
         headers: {
             "Content-Type": "application/json"
@@ -60,7 +60,7 @@ export const deleteAction = async ({params}) => {
     const id = params.id
 
     // send request to backend
-    await fetch(URL + `/todos/${id}/`, {
+    await fetch(URL + `/cheese/${id}/`, {
         method: "delete",
     })
 
