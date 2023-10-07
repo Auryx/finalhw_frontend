@@ -1,9 +1,10 @@
 // YOUR DEPLOYED API BASE URL
-const URL = "https://cheese-app-backend-z1im.onrender.com/"
+const URL = "https://cheese-app-backend-z1im.onrender.com"
 
 //indexLoader => get all todos for index route
 export const indexLoader = async () => {
     const response = await fetch(URL + "/todos/")
+    console.log(response)
     const todos = await response.json()
     return todos
 }
