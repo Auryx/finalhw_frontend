@@ -61,7 +61,7 @@ export const deleteAction = async ({params}) => {
     const id = params.id
 
     // send request to backend
-    await fetch(URL + `cheese/${id}/`, {
+    await fetch(URL + `${id}/`, {
         method: "delete",
     })
 
