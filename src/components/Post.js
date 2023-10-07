@@ -13,10 +13,10 @@ const Post = ({ post }) => {
   };
   return (
     <div style={div}>
-      <Link to={`/post/${post.id}`}>
-        <h1>{post.subject}</h1>
+      <Link to={`/${post.id}`}>
+        <h1>{post.name}</h1>
       </Link>
-      <h2>{post.details}</h2>
+      <h2>{post.origin_country}</h2>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const Show = () => {
           />
           <input
             type="text"
-            name="origin-country"
+            name="origin_country"
             placeholder="write Origin Country here"
             defaultValue={post.origin_country}
           />

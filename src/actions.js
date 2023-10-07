@@ -1,7 +1,6 @@
 import { redirect } from "react-router-dom"
 
-// YOUR DEPLOYED API BASE URL
-const URL = "https://cheese-app-backend-z1im.onrender.com"
+const URL = "https://cheese-app-backend-z1im.onrender.com/cheese/"
 
 //createAction => create a todo from form submissions to `/create`
 export const createAction = async ({request}) => {
@@ -10,12 +9,13 @@ export const createAction = async ({request}) => {
 
     // construct request body
     const newTodo = {
-        subject: formData.get("subject"),
-        details: formData.get("details")
+        name: formData.get("name"),
+        origin_country: formData.get("origin_country"),
+        type: formData.get("type")
     }
 
     // send request to backend
-    await fetch(URL + "/cheese/", {
+    await fetch(URL, {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -29,29 +29,30 @@ export const createAction = async ({request}) => {
 
 //updateAction => update a todo from form submissions to `/update/:id`
 export const updateAction = async ({request, params}) => {
-    // get form data
-    const formData = await request.formData()
-
     // get todo id
     const id = params.id
 
+    // get form data
+    const formData = await request.formData()
+
     // construct request body
     const updatedTodo = {
-        subject: formData.get("subject"),
-        details: formData.get("details")
+        name: formData.get("name"),
+        origin_country: formData.get("origin_country"),
+        type: formData.get("type")
     }
-
+    console.log(updatedTodo)
     // send request to backend
-    await fetch(URL + `/cheese/${id}/`, {
+    const response = await fetch(URL + `${id}/`, {
         method: "put",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(updatedTodo)
     })
-
+    console.log(response)
     // redirect back to show page page
-    return redirect(`/post/${id}`)
+    return redirect(`/${id}`)
 }
 
 //deleteAction => delete a todo from form submissions to `/delete/:id`
@@ -60,7 +61,7 @@ export const deleteAction = async ({params}) => {
     const id = params.id
 
     // send request to backend
-    await fetch(URL + `/cheese/${id}/`, {
+    await fetch(URL + `cheese/${id}/`, {
         method: "delete",
     })
 
